@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+<h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Check your eligibility</h2><br>
+
+<form method="post">
+
+    {% csrf_token %}
+
+    {{ form|crispy }}
+<div class="col-sm-9 col-sm-offset-4">
+ <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Gender:</label>
+     <input type="radio" id="male" name="gender" checked>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender">
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender">
+        <label for="other">Other</label>
+</div>
+</div>
+<div class="col-sm-9 col-sm-offset-4">
+    <div class="form-group row">
+    <label for="birthday" class="col-sm-2 col-form-label">Date of Birth:</label>
+            <input type="date" id="birthday" name="birthday">
+    </div>
+</div>
+
+    <div class="col-sm-9 col-sm-offset-4">
+
+<div class="form-group row">
+    <label for="education" class="col-sm-2 col-form-label">Education:</label>
+
+    <select id="education" name="education">
+        <option value="0">Academic Degree</option>
+        <option value="1">Higher Education</option>
+        <option value="2">Incomplete Higher</option>
+        <option value="3">Lower Secondary</option>
+        <option value="4">Secondary</option>
+    </select>
+</div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-4">
+<div class="form-group row">
+    <label for="employment" class="col-sm-2 col-form-label">Employment:</label>
+
+    <select id="employment" name="profession">
+        <option value="0">Commercial</option>
+        <option value="1">Pensioner</option>
+        <option value="2">State Servant</option>
+        <option value="3">Student</option>
+        <option value="4">Working</option>
+    </select>
+</div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-4">
+<div class="form-group row">
+    <label for="income" class="col-sm-2 col-form-label">Income:</label>
+    <input type="text" id="income" name="income" size="12">
+    <small>Currency: Chinese Yuan / Interval: Year</small>
+</div>
+    </div>
+
+
+<div class="col-sm-9 col-sm-offset-4">
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Do yo have a car?</label>
+    <input type="radio" id="y" name="car" value="1" checked>
+    <label for="y">Yes</label>
+    <input type="radio" id="n" name="car" value="0">
+        <label for="n">No</label>
+</div>
+
+</div>
+
+    <div class="col-sm-9 col-sm-offset-4">
+<div class="form-group row">
+    <label class="col-sm-2 col-form-label">Do yo own a property?</label>
+    <input type="radio" id="yes" name="property" value="1" checked>
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="property" value="0">
+        <label for="no">No</label>
+
+</div>
+    </div>
+
+<div class="col-sm-9 col-sm-offset-4">
+<button type="submit" class="btn btn-primary">Check</button>
+              <a href="{% url 'home' %}" class="btn btn-link">Go Back</a>
+</div>
+</form>
+
+
+
+
+{% endblock %}
